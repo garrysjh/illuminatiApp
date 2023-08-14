@@ -3,7 +3,6 @@ Proof of concept Kahoot mobile application that allows multiple devices/users to
 
 ### What does this app do?
 \
-\
 The server hosts a webapp that runs a quiz
 \
 \
@@ -31,6 +30,10 @@ mvn spring-boot:run
 4. Follow the instructions, or access localhost:8080 to get the website
 5. Navigate to main.dart in the androidquiz/lib/main.dart
 6. Change URL and URL2 to your local ip address (so that devices on your ip address can connect to the server)
+```
+var URL = 'http://{YOUR_IP_HERE}:{PORT}/api/v1';
+var URL2 = 'http://{YOUR_IP_HERE}:{PORT}';
+```
 7. Run the app on your phone, while the server and database is running!
 
 # Troubleshooting
