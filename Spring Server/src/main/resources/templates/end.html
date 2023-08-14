@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz 1 Responses</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+  <style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #333;
+			font-size: 60px; /* larger font size */
+			font-family: 'Abril Fatface', cursive; /* cool font from Google Fonts */
+		}
+
+		.quiz-buttons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+
+		.button {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 10px 2px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+
+		.button:hover {
+			background-color: #3e8e41;
+		}
+		span {
+		    font-size: 10vh;
+		}
+		div {
+		text-align: center;
+		}
+		table {
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 5vh;
+
+        td {
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-right: 10%;
+        padding-left: 10%;
+        }
+        h2 {
+        text-align: center;
+        }
+	</style>
+  <script th:inline="javascript">
+
+
+// Get the Thymeleaf variables
+    var q11 = [[${Q11}]];
+    var q12 = [[${Q12}]];
+    var q13 = [[${Q13}]];
+
+    // Configure the chart
+    var config = {
+        type: 'pie',
+        data: {
+            labels: ['Q11', 'Q12', 'Q13'],
+            datasets: [{
+                label: 'Pie Chart',
+                data: [q11, q12, q13],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+
+    // Render the chart
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, config);
+</script>
+</head>
+<body>
+<h1>This session's responses (by answer)</h1>
+<div>
+<h1>Q1</h1>
+<h2 th:text="'1: 1 '+ ${Q11}">A:</h2>
+<h2 th:text="'2: 4 '+${Q12}">A:</h2>
+<h2 th:text="'3: 9 '+${Q13}">A:</h2>
+<h2 th:text="'3: 2 '+${Q14}">A:</h2>
+</div>
+<div>
+<h1>Q2</h1>
+<h2  th:text="'1: Very nice '+${Q21}">A:</h2>
+<h2  th:text="'2: Sucks I guess '+${Q22}">A:</h2>
+<h2  th:text="'3: I think its ok '+${Q23}">A:</h2>
+<h2 th:text="'4: No opinion '+${Q24}">A:</h2>
+</div>
+<div>
+<h1>Q3</h1>
+<h2 th:text="'1: Yusof Bin Ishak '+${Q31}">A:</h2>
+<h2 th:text="'2: Halimah Yacob '+${Q32}">A:</h2>
+<h2 th:text="'3: Lee Hsien Loong '+${Q33}">A:</h2>
+<h2 th:text="'4: Ronald McDonald '+${Q34}">A:</h2>
+</div>
+<div>
+<button class="button" onclick="window.location.href='http://localhost:8080/quizzes'">Go back to quizzes</button>
+</div>
+
+</body>
+</html>

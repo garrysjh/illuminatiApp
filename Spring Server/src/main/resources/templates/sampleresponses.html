@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="refresh" content="3;url=http://localhost:8080/sampleresponses" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<h1>Responses</h1>
+<h2 id="a" th:text="${A}">A:</h2>
+<h2 id="b" th:text="${B}">B:</h2>
+<h2 id="c" th:text="${C}">C:</h2>
+<h2 id="d" th:text="${D}">D:</h2>
+
+<a href="/">Back to Qn</a>
+<script>
+    function updateNumbers() {
+    // Make an AJAX request to the server to get the updated values
+    $.ajax({
+        url: "/sampleresponses", // Replace with the URL of your API endpoint
+        method: "GET",
+        success: function(response) {
+            // Update the HTML content with the new values
+            $("#a").text(response.A);
+            $("#b").text(response.B);
+            $("#c").text(response.C);
+            $("#d").text(response.D);
+        },
+        error: function() {
+            // Handle error
+            console.log("Error fetching numbers");
+        }
+    });
+}
+$(document).ready(function() {
+    // Call updateNumbers function every 5 seconds
+    setInterval(updateNumbers, 5000);
+});
+</script>
+</body>
+</html>
