@@ -26,7 +26,11 @@ mvn spring-boot:run
 
 You MUST run the mysqld server first before running the Spring Boot Application!
 
+# Screens
 
+![Screenshot (2)](https://github.com/garrysjh/illuminatiApp/assets/105370724/13e4a93b-2a16-4357-89f4-249609d13318)
+
+![Screenshot (3)](https://github.com/garrysjh/illuminatiApp/assets/105370724/cea2cee3-967c-40b6-a145-0add20c5b3b4)
 
 
 
