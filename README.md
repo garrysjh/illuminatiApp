@@ -4,7 +4,9 @@ Proof of concept Kahoot mobile application that allows multiple devices/users to
 What does this app do?
 
 The server hosts a webapp that runs a quiz
+
 The mobile app(s) connects to the session that is started by the server webapp, and the mobile app has to answer questions while the time ticks down on the server webapp.
+
 After time has run out, the webapp displays the answers that have been answered by the mobile app(s) and displays these results in graphs.
 
 
